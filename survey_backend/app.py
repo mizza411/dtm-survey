@@ -1,10 +1,10 @@
 from flask import Flask, request, render_template_string, redirect
-from flask_cors import CORS
 import csv
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # This enables CORS for all routes and origins
+CORS(app)
 
 SURVEY_FILE = 'survey_results.csv'
 
