@@ -333,6 +333,21 @@
                     <div class="section-title">🔄 Trustmark Workflow Analysis</div>
                     
                     <div class="question-group">
+                        <div class="question">Which phase best describes your current trustmark implementation?</div>
+                        <div class="input-group">
+                            <select name="implementationPhase">
+                                <option value="">Select phase</option>
+                                <option value="basic">Basic system (number generation, QR code, basic website)</option>
+                                <option value="social">Social integration (social media, badges, mobile app)</option>
+                                <option value="advanced">Advanced features (dynamic trust, community verification, analytics)</option>
+                                <option value="expansion">Ecosystem expansion (industry/government partnerships, internationalization)</option>
+                                <option value="other">Other (please specify below)</option>
+                            </select>
+                            <input type="text" name="implementationPhaseOther" placeholder="If other, please specify...">
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
                         <div class="question">Please tell us what verification platform or system do you currently use?</div>
                         <div class="input-group">
                             <input type="text" name="verificationPlatform" placeholder="e.g., Custom solution, Third-party service">
@@ -357,6 +372,43 @@
                 <!-- Section 3: Core Components Implementation -->
                 <div class="section hidden" id="section3">
                     <div class="section-title">🔐 Core Components Implementation</div>
+                    
+                    <div class="question-group">
+                        <div class="question">Does your trustmark system use different trust levels (e.g., Bronze, Silver, Gold) or industry/geographic codes for sellers?</div>
+                        <div class="input-group">
+                            <select name="trustLevels">
+                                <option value="">Select one</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option value="planning">Planning to implement</option>
+                            </select>
+                            <textarea name="trustLevelsDetails" placeholder="If yes, please describe the levels or codes and how they are assigned..."></textarea>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">Do you use community-based verification, peer reviews, or endorsements from local authorities as part of your trustmark process?</div>
+                        <div class="input-group">
+                            <select name="communityVerification">
+                                <option value="">Select one</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option value="planning">Planning to implement</option>
+                            </select>
+                            <textarea name="communityVerificationDetails" placeholder="If yes, please describe how community or peer verification works..."></textarea>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">Does your trustmark system support offline or rural verification (e.g., SMS, agent networks, local language support)?</div>
+                        <div class="input-group">
+                            <select name="offlineSupport">
+                                <option value="">Select one</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option value="planning">Planning to implement</option>
+                            </select>
+                            <textarea name="offlineSupportDetails" placeholder="If yes, please describe the methods used..."></textarea>
+                        </div>
+                    </div>
                     
                     <div class="question-group">
                         <div class="question">Please select what types of documents do you accept for verification</div>
@@ -447,6 +499,19 @@
                             <textarea name="trustScoreCalculation" placeholder="Describe your trust score calculation methodology..."></textarea>
                         </div>
                     </div>
+
+                    <div class="question-group">
+                        <div class="question">Do you have a process for continuous monitoring and dynamic adjustment of trust scores or verification status?</div>
+                        <div class="input-group">
+                            <select name="continuousMonitoring">
+                                <option value="">Select one</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option value="planning">Planning to implement</option>
+                            </select>
+                            <textarea name="continuousMonitoringDetails" placeholder="If yes, please describe how this works..."></textarea>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Section 5: Technology Stack Assessment -->
@@ -486,6 +551,13 @@
                         <div class="question">Which payment processing systems do you use to accept payments from sellers on your digital trustmark platform?</div>
                         <div class="input-group">
                             <textarea name="paymentSystems" placeholder="For example: Stripe, PayPal, Flutterwave, Paystack, etc. Please list all that apply..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="question-group">
+                        <div class="question">Which technical methods do you use to integrate your trustmark system with other platforms (e.g., APIs, SDKs, plugins, social media integrations)? Please list all that apply.</div>
+                        <div class="input-group">
+                            <textarea name="integrationMethods" placeholder="For example: REST API, JavaScript plugin, mobile SDK, WhatsApp integration, etc..."></textarea>
                         </div>
                     </div>
                 </div>
