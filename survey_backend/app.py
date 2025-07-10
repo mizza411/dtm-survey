@@ -8,8 +8,8 @@ SURVEY_FILE = 'survey_results.csv'
 
 @app.route('/', methods=['GET'])
 def form():
-    # Serve the survey form HTML (update the path if needed)
-    with open('../digital trust mark/dtm_survey_form.html', encoding='utf-8') as f:
+    # Serve the survey form HTML from the local directory
+    with open('dtm_survey_form.html', encoding='utf-8') as f:
         return f.read()
 
 @app.route('/submit', methods=['POST'])
