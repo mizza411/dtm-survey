@@ -30,12 +30,19 @@ def results():
     if not os.path.isfile(SURVEY_FILE):
         return '<h2>No results yet.</h2>'
     with open(SURVEY_FILE, encoding='utf-8') as f:
-        reader = csv.reader(f)
-        rows = list(reader)
-    html = '<h2>Survey Results</h2><table border="1">'
-    for i, row in enumerate(rows):
-        html += '<tr>' + ''.join(f'<th>{cell}</th>' if i == 0 else f'<td>{cell}</td>' for cell in row) + '</tr>'
-    html += '</table><br><a href="/">Back to form</a>'
+        reader = csv.DictReader(f)
+        responses = list(reader)
+    if not responses:
+        return '<h2>No results yet.</h2>'
+    html = '<h2>Survey Results</h2>'
+    for i, row in enumerate(responses):
+        html += '<div style="border:1px solid #aaa; border-radius:8px; margin:20px 0; padding:16px; background:#fafbfc; max-width:700px;">'
+        html += f'<h3>Response {i+1}</h3>'
+        for key, value in row.items():
+            if value.strip():
+                html += f'<div style="margin-bottom:8px;"><b>{key}:</b> {value}</div>'
+        html += '</div>'
+    html += '<br><a href="/">Back to form</a>'
     return html
 
 if __name__ == '__main__':
