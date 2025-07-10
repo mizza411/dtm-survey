@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string, redirect
+from flask import Flask, request, render_template_string, redirect, send_file
 import csv
 import os
 from flask_cors import CORS
@@ -42,8 +42,15 @@ def results():
             if value.strip():
                 html += f'<div style="margin-bottom:8px;"><b>{key}:</b> {value}</div>'
         html += '</div>'
+    html += '<br><a href="/download_csv">Download CSV (to avoid data loss during re-deployment)</a>'
     html += '<br><a href="/">Back to form</a>'
     return html
+
+@app.route('/download_csv')
+def download_csv():
+    if not os.path.isfile(SURVEY_FILE):
+        return 'No results file found.', 404
+    return send_file(SURVEY_FILE, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True) 
