@@ -328,8 +328,43 @@
                     </div>
                 </div>
 
-                <!-- Section 2: Trustmark Workflow Analysis -->
+                <!-- Section 2: E-commerce in Your Country -->
                 <div class="section hidden" id="section2">
+                    <div class="section-title">🛒 E-commerce in Your Country</div>
+                    <div class="question-group">
+                        <div class="question">How would you describe the current state of e-commerce in your country?</div>
+                        <div class="input-group">
+                            <textarea name="ecomState" placeholder="Describe the e-commerce landscape, e.g., growing, mature, emerging, etc."></textarea>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">What are the most popular e-commerce platforms in your country?</div>
+                        <div class="input-group">
+                            <input type="text" name="ecomPlatforms" placeholder="List popular platforms, e.g., Jumia, Konga, Amazon, etc.">
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">What are the main challenges facing e-commerce in your country?</div>
+                        <div class="input-group">
+                            <textarea name="ecomChallenges" placeholder="Describe key challenges, e.g., logistics, trust, payment, regulation, etc."></textarea>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">What payment methods are most commonly used for online purchases?</div>
+                        <div class="input-group">
+                            <input type="text" name="ecomPayments" placeholder="e.g., cards, bank transfer, mobile money, cash on delivery, etc.">
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <div class="question">Any additional comments about e-commerce in your country?</div>
+                        <div class="input-group">
+                            <textarea name="ecomComments" placeholder="Share any other insights or observations..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Trustmark Workflow Analysis -->
+                <div class="section hidden" id="section3">
                     <div class="section-title">🔄 Trustmark Workflow Analysis</div>
                     
                     <div class="question-group">
@@ -369,8 +404,8 @@
                     </div>
                 </div>
 
-                <!-- Section 3: Core Components Implementation -->
-                <div class="section hidden" id="section3">
+                <!-- Section 4: Core Components Implementation -->
+                <div class="section hidden" id="section4">
                     <div class="section-title">🔐 Core Components Implementation</div>
                     
                     <div class="question-group">
@@ -469,8 +504,8 @@
                     </div>
                 </div>
 
-                <!-- Section 4: System Performance & Metrics -->
-                <div class="section hidden" id="section4">
+                <!-- Section 5: System Performance & Metrics -->
+                <div class="section hidden" id="section5">
                     <div class="section-title">📊 System Performance & Metrics</div>
                     
                     <div class="question-group">
@@ -520,8 +555,8 @@
                     </div>
                 </div>
 
-                <!-- Section 5: Technology Stack Assessment -->
-                <div class="section hidden" id="section5">
+                <!-- Section 6: Technology Stack Assessment -->
+                <div class="section hidden" id="section6">
                     <div class="section-title">💻 Technology Stack Assessment</div>
                     
                     <div class="question-group">
@@ -568,8 +603,8 @@
                     </div>
                 </div>
 
-                <!-- Section 6: Security & Compliance -->
-                <div class="section hidden" id="section6">
+                <!-- Section 7: Security & Compliance -->
+                <div class="section hidden" id="section7">
                     <div class="section-title">🛡️ Security & Compliance</div>
                     
                     <div class="question-group">
@@ -602,8 +637,8 @@
                     </div>
                 </div>
 
-                <!-- Section 7: Additional Comments -->
-                <div class="section hidden" id="section7">
+                <!-- Section 8: Additional Comments -->
+                <div class="section hidden" id="section8">
                     <div class="section-title">📝 Additional Comments</div>
                     
                     <div class="question-group">
@@ -628,8 +663,8 @@
                     </div>
                 </div>
 
-                <!-- Section 8: Contact Information -->
-                <div class="section hidden" id="section8">
+                <!-- Section 9: Contact Information -->
+                <div class="section hidden" id="section9">
                     <div class="section-title">📊 Contact Information</div>
                     
                     <div class="question-group">
@@ -674,21 +709,22 @@
 
     <script>
         let currentSection = 1;
-        const totalSections = 8;
+        const totalSections = 9;
 
         function updateProgress() {
-            const progress = (currentSection / totalSections) * 100;
+            const progress = ((currentSection - 1) / (totalSections - 1)) * 100; // Adjusted for new sections
             document.getElementById('progressFill').style.width = progress + '%';
         }
 
         function showSection(sectionNumber) {
             // Hide all sections
             for (let i = 1; i <= totalSections; i++) {
-                document.getElementById('section' + i).classList.add('hidden');
+                const section = document.getElementById('section' + i);
+                if (section) section.classList.add('hidden');
             }
-            
             // Show current section
-            document.getElementById('section' + sectionNumber).classList.remove('hidden');
+            const current = document.getElementById('section' + sectionNumber);
+            if (current) current.classList.remove('hidden');
             
             // Update navigation buttons
             document.getElementById('prevBtn').style.display = sectionNumber === 1 ? 'none' : 'inline-block';
